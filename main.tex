@@ -1,0 +1,77 @@
+\documentclass[11pt,a4paper]{article}
+% To switch to a two-column layout, add "twocolumn" to the options above:
+%   \documentclass[11pt,a4paper,twocolumn]{article}
+
+%---------------------------------------------------------------- fonts
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+%------------------------------------------------------------- geometry
+\usepackage[a4paper,margin=2.5cm]{geometry}
+
+%-------------------------------------------------- line numbers (left)
+\usepackage[left,mathlines]{lineno}
+\setlength{\linenumbersep}{1.2em}   % gap between numbers and text
+\renewcommand{\linenumberfont}{\normalfont\tiny\sffamily\color{gray}}
+%------------------------------------------------ graphics, tables, maths
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{siunitx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{placeins}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage[version=4]{mhchem}
+\usepackage{braket}
+\usepackage{enumitem}
+\usepackage[backend=biber,style=alphabetic,sorting=ynt]{biblatex}
+\addbibresource{refs.bib}
+\setlist[itemize]{noitemsep, topsep=0.1em}
+%------------------------------------------------------- hyperlinks / boxes
+% Default hyperref draws a coloured box around links & citations,
+% reproducing the [LabWeb] / [Has10] look from the manual.
+\usepackage{hyperref}
+\hypersetup{
+  citebordercolor={0 1 0},   % green box around \cite  (as in the manual)
+  linkbordercolor={1 0 0},
+  urlbordercolor ={0 1 1},
+}
+
+\usepackage{titlesec}
+
+\newcommand{\Rbe}{\ce{^{85}Rb}}
+\newcommand{\Rbg}{\ce{^{87}Rb}}
+
+\titlespacing*{\section}{0pt}{1.0ex}{0.75ex}
+\titlespacing*{\subsection}{0pt}{1.0ex}{0.5ex}
+
+%======================================================================
+\begin{document}
+\linenumbers                   
+\pagenumbering{arabic}
+
+%------------------------------------------------------------ title block
+\begin{center}
+  {\LARGE\bfseries K223: Nuclear $\gamma \gamma$ angular correlations}\par
+  \vspace{1.2em}
+  {\Large Group P02: Isadora Luiza Bozza Galvão \& Simón González Gómez}\par
+  \vspace{1.2em}
+  {\Large \today}\par
+\end{center}
+\vspace{1.5em}
+
+%======================================================================
+%  START OF YOUR NOTEBOOK
+%======================================================================
+
+\include{Content/notebook}
+
+\appendix
+
+\include{Content/appendix}
+
+\printbibliography[title={References}]
+
+\end{document}
