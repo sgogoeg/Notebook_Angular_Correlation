@@ -1,30 +1,110 @@
+\begin{center}
+  {\LARGE\bfseries K223: Nuclear $\gamma \gamma$ angular correlations}\par
+  \vspace{1.2em}
+  {\Large Group P02: Isadora Luiza Bozza Galvão \& Simón González Gómez}\par
+  \vspace{1.2em}
+  {\Large \today}\par
+\end{center}
+\vspace{1.5em}
+
 \section{Preparations and calibration of the setup}
+Before starting the experiment, it was need to calibrate the setup. 
+The circuits are shown in Fig. \ref{fig:circuits} and the steps are described in the subsections. 
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.5\linewidth]{Figures/Placeholder.png}
-    \caption{Circuit diagrams}
-    \label{fig:circuitdiagrams}
+    \begin{subfigure}{0.48\textwidth}
+        \includegraphics[width=\linewidth]{Figures/circuit01.png}
+        \caption{Circuit used for visualizing the full spectrum.}
+        \label{fig:circ_01}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.48\textwidth}
+        \includegraphics[width=\linewidth]{Figures/circuit02.png}
+        \caption{Circuit for SCA calibration.}
+        \label{fig:circ_02}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.48\textwidth}
+        \includegraphics[width=\linewidth]{Figures/circuit03.png}
+        \caption{Circuit for CFD calibration.}
+        \label{fig:circ_03}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.48\textwidth}
+        \includegraphics[width=\linewidth]{Figures/circuit04.png}
+        \caption{Circuit for adjusting delay in fast-branch.}
+        \label{fig:circ_04}
+    \end{subfigure}
+    \caption{All circuits used in the preparation and calibration of the setup before the main measurement, obtained in \cite{Manual}}
+    \label{fig:circuits}
 \end{figure}
 
 
 \subsection{Gain of the amplifiers}
+\textcolor{red}{Explain how you concluded that the
+shown signals correspond to the photopeaks, how the signal shape should be, and how it would look like if saturated}
+
+Using the circuit from Fig. \ref{fig:circ_01}, we first connected the output of the amplifier to the oscilloscope and adjusted the gain such that amplitude of the signal would be between \qtyrange{8}{9}{\volt}, because the multi-channel analyzer (MCA) has a maximum limit of 10 \unit{\volt}. 
+On the oscilloscope, we could see a bipolar pulse per signal, as shown in Fig. \ref{fig:osc_amp}. 
+The amplitude seen in the oscilloscope is proportional to the energy deposited in the detectors and there was no saturation because there was no plateau in the analog signal. 
+By switching the gain output from the oscilloscope to the MCA with the gate off, we could also check that the full spectrum was visible in the software by comparing with the spectrum from the literature. 
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.5\linewidth]{Figures/Placeholder.png}
-    \caption{Oscilloscope screenshot for both detectors}
-    \label{fig:OscAmpGain}
+    \begin{subfigure}{0.48\textwidth}
+        \includegraphics[width=\linewidth]{Figures/osc_amp_01.png}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.48\textwidth}
+        \includegraphics[width=\linewidth]{Figures/osc_amp_02.png}
+    \end{subfigure}
+    \caption{Oscilloscope screenshots for the fixed detector (left) and the movable detector (right), both with the constraint of amplitude peak \qtyrange{8}{9}{\volt} for checking the gain of the amplifiers.}
+    \label{fig:osc_amp}
 \end{figure}
+
 
 \subsection{Calibration of the SCAs}
+\textcolor{red}{Indicate which thresholds were chosen for the final measurement. The sensitivity of the SCA should be close to 100 \% in the range of the photo peaks. Is it?}
+
+The single-channel-analyzer (SCA) needs to be calibrated, once the analysis will not be done in the whole spectrum. 
+In order to achieve that, the circuit from Fig. \ref{fig:circ_02} is used.
+The signal coming from the amplifier is divided, one goes to the delay generator and the other goes to the SCA followed by a gate-delay-generator (GDG). 
+They are then connected to either the oscilloscope or to the MCA.
+The delay and the GDG are selected such that the analog signal is aligned with the digital, without cutting the peaks, according to Fig. \ref{fig:osc_SCA}
+This is done using the oscilloscope. 
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}{0.48\textwidth}
+        \includegraphics[width=\linewidth]{Figures/osc_SCA_01.png}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.48\textwidth}
+        \includegraphics[width=\linewidth]{Figures/osc_SCA_02.png}
+    \end{subfigure}
+    \caption{Oscilloscope screenshots for the fixed detector (left) and the movable detector (right) for the SCA calibration circuit. The SCA-GDG output is the digital pulse, in green, and the delay output is the yellow one.}
+    \label{fig:osc_SCA}
+\end{figure}
+
+On the other hand, while using the MCA, the SCA window is selected to contain both photopeaks of the spectrum for higher statistics.
+For the fixed detector the SCA window was of lower-limit $9.20$ \unit{\volt} and $\Delta E = 2.30$ \unit{\volt}. 
+For the movable detector, it was set to $8.40$ \unit{\volt} and $\Delta E = 2.52$ \unit{\volt}. 
+The spectrum was recorded without the SCA gate (MCA self-gated, showing the full spectrum) and with the SCA gate, showing the peak selection, as shown in Fig. \ref{fig:cali_SCA}
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.5\linewidth]{Figures/SCA_spectra_det1.pdf}
-    \caption{MCA spectrum with and without SCA gate}
-    \label{fig:MCA_SCA}
+    \begin{subfigure}{0.48\textwidth}
+        \includegraphics[width=\linewidth]{Figures/SCA_spectra_det1.pdf}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.48\textwidth}
+        \includegraphics[width=\linewidth]{Figures/SCA_spectra_det2.pdf}
+    \end{subfigure}
+    \caption{MCA spectrum self-gated (without gate) and with the SCA gate for fixed detector (left) and movable one (right).}
+    \label{fig:cali_SCA}
 \end{figure}
+
+    
 
 \begin{equation}\label{eq:sensitivitySCA}
     AAAA = BBB
@@ -38,13 +118,41 @@
 \end{figure}
 
 \subsection{Calibration of the CFDs}
+\textcolor{red}{Indicate the chosen threshold in the plot. sensitivity should be close to 100 \% in the range of the photo peaks. Is it?}
+
+For the fast branch circuit, the constant fraction discriminators (CFDs) were calibrated using the circuit represented in Fig. \ref{fig:circ_03}. 
+The threshold was chosen such that there was not too much visible noise and also not too high. 
+For the fixed detector, the threshold is $0.63$ \unit{\volt} and for the movable one, it is $1.0$ \unit{\volt}. 
+The GDG delay was changed for both pulses being center aligned.
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.5\linewidth]{Figures/CFD_spectra_det1.pdf}
-    \caption{MCA spectrum with and without CFD gate}
-    \label{fig:MCA_CFD}
+    \begin{subfigure}{0.48\textwidth}
+        \includegraphics[width=\linewidth]{Figures/osc_CFD_01_tes.png}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.48\textwidth}
+        \includegraphics[width=\linewidth]{Figures/osc_CFD_02_tes.png}
+    \end{subfigure}
+    \caption{Oscilloscope screenshots for the fixed detector (left) and the movable detector (right) for the CFD calibration circuit. The CFD-GDG output is the digital pulse, in green, and the delay output is the yellow one.}
+    \label{fig:osc_CFD}
 \end{figure}
+
+
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}{0.48\textwidth}
+        \includegraphics[width=\linewidth]{Figures/CFD_spectra_det1.pdf}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.48\textwidth}
+        \includegraphics[width=\linewidth]{Figures/CFD_spectra_det2.pdf}
+    \end{subfigure}
+    \caption{MCA spectrum self-gated (without gate) and with the CFD gate for fixed detector (left) and movable one (right).}
+    \label{fig:cali_CFD}
+\end{figure}
+
 
 \begin{equation}\label{eq:sensitivityCFD}
     AAAA = BBB
@@ -58,16 +166,32 @@
 \end{figure}
 
 \subsection{Delay in the fast branch}
+The fast branch of each detector has its own CFD and delay, as in the circuit \ref{fig:circ_04}.
+The signals must arrive at the same at the fast coincidence (FC) and then we can build the prompt curve, Fig. \ref{fig:prompt_curve}, by changing the delay times of each detector \cite{Siegbahn1965}.
+First, the delay on detector 01 (the fixed one) was kept to 0 and we changed the delay the on the detector 02 (movable detector), which is the positive part of the prompt curve.
+After this, the opposite was done. 
+The delays from detector 02 were set to zero and the delays on detector 01 were changed, resulting in the negative part of the prompt curve. 
 
+The prompt curve is fitted with Eq. \ref{eq:fit_prompt}.
+The resolving time changes the width of the prompt curve, the shorter it is, narrower the prompt curve becomes. 
+
+
+
+
+\begin{equation}\label{eq:fit_prompt}
+    f(t) = \frac{A}{2}\cdot \left ( 1 + \mathrm{erf} \left(\dfrac{t-(t_{0}-\frac{w}{2})}{\sigma} \right) \cdot \mathrm{erf} \left(\dfrac{(t_{0}+\frac{w}{2})-t}{\sigma} \right)\right) + A_{0}
+\end{equation}
 \begin{equation}\label{eq:Delay_Fast_Branch}
     CAD =asas
 \end{equation}
+\textcolor{red}{How will the shape of the prompt curve change if the resolving time is chosen too short or too long? Was the choice reasonable?}
+
 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.5\linewidth]{Figures/prompt_curve.pdf}
     \caption{Data delay fast branch with fit}
-    \label{fig:Delay_data_raw}
+    \label{fig:prompt_curve}
 \end{figure}
 
 \begin{table}[htbp]
@@ -79,16 +203,18 @@
     c & a
     \end{tabular}
 \end{table}
-
+\textcolor{red}{Explain what each of the parameters represents. Which property of the
+setup corresponds to the width of the function? Which property to the width of the slopes?}
 \subsection{Delay in the slow branch}
-
+Lastly, the delay in the slow branch needs to be set. 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.5\linewidth]{Figures/Placeholder.png}
     \caption{Oscilloscope signal for the 3 branches}
     \label{fig:slow_delay}
 \end{figure}
-
+\textcolor{red}{Explain which features need to be
+aligned (center? edge?)}
 \FloatBarrier
 
 \section{Main Measurement}
