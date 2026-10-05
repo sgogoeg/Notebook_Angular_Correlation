@@ -279,11 +279,15 @@ aligned (center? edge?)}
 
 \begin{table}[htbp]
     \centering
-    \caption{Fit parameters of the angular correlation}
+    \caption{Coefficients of the fit up to $P_4$ (Table~\ref{tab:fit_spin_cascades}) after the solid-angle correction $A_{kk} = A_{kk}^\mathrm{exp}/Q_{kk}$, with $Q_{kk} = Q_k^2$ for \qty{5}{\centi\metre} \cite[p.~1698]{Siegbahn1965}, and the theoretical values for three spin cascades.}
     \label{tab:fit_angular_correlation}
-    \begin{tabular}{c|c}
-        a & b \\
-        c & d
+    \begin{tabular}{cccccc}
+        \toprule
+         & $Q_{kk}$ & measured & 4-2-0 & 0-1-0 & 2-1-0 \\
+        \midrule
+        $A_{22}$ & 0.8190 & \num{0.1140 +- 0.0014} & 0.1020 & 0.5000 & 0.0500 \\
+        $A_{44}$ & 0.5055 & \num{0.0151 +- 0.0029} & 0.0091 & 0.0000 & 0.0000 \\
+        \bottomrule
     \end{tabular}
 \end{table}
 
@@ -298,9 +302,14 @@ aligned (center? edge?)}
     \centering
     \caption{Fit parameters and $\chi^2/\mathrm{ndf}$ of the fits up to $P_2$, $P_4$ and $P_6$}
     \label{tab:fit_spin_cascades}
-    \begin{tabular}{c|c}
-        a & b \\
-        c & d
+    \begin{tabular}{cccccc}
+        \toprule
+        fit up to & $K_0$ [\unit{\per\second}] & $A_{22}^\mathrm{exp}$ & $A_{44}^\mathrm{exp}$ & $A_{66}^\mathrm{exp}$ & $\chi^2/\mathrm{ndf}$ \\
+        \midrule
+        $P_2$ & \num{20.177 +- 0.012} & \num{0.0956 +- 0.0011} & -- & -- & $31.4/11 = 2.86$ \\
+        $P_4$ & \num{20.161 +- 0.013} & \num{0.0934 +- 0.0012} & \num{0.0076 +- 0.0015} & -- & $4.6/10 = 0.46$ \\
+        $P_6$ & \num{20.162 +- 0.013} & \num{0.0932 +- 0.0012} & \num{0.0073 +- 0.0016} & \num{0.0009 +- 0.0018} & $4.4/9 = 0.48$ \\
+        \bottomrule
     \end{tabular}
 \end{table}
 
