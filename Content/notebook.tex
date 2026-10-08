@@ -279,19 +279,10 @@ Although a clear time instability and drift is appreciated, the number of measur
     \label{fig:stability_both_coin}
 \end{figure}
 
-\begin{table}[htbp]
-    \centering
-    \caption{Fit parameters for the stability}
-    \label{tab:fit_stability}
-    \begin{tabular}{c|c}
-    a & b \\
-    c & d
-    \end{tabular}
-\end{table}
+\FloatBarrier
 
 \subsection{Random coincidence and misalignment corrections}
 For the random coincidence measurement, the delay on the fast-branch of the second detector was set to 48\unit{\ns}, the angles ran from \ang{90} to \ang{270} with \ang{15} steps and the measurement took 1\unit{\hour}.
-
 
 \begin{figure}[htbp]
     \centering
@@ -307,11 +298,21 @@ For the random coincidence measurement, the delay on the fast-branch of the seco
     \label{fig:Angular_correl}
 \end{figure}
 
+\FloatBarrier
+
 \subsection{Measurement of the angular correlation}
 
+The angular correlation function $W(\theta)$ is defined as:
+
 \begin{equation}\label{eq:angular_correlation}
-    CCCC = DDD
+    W(\theta) = K_0\,[1 + A_{22}^{\text{exp}} P_2(\cos\theta) + A_{44}^{\text{exp}} P_4(\cos\theta)] \, ,
 \end{equation}
+
+where $P_n$ is the n-th Legendre polynomials. They codify the angular dependence in the reaction. $K_0$ is a proportionality constant that absorbs parameters like the level of activity of the source.
+
+Theoretical coefficients for the cascade are related to experimentally observed ones by a solid angle attenuation coefficient $Q_{kk}$ by $A_{kk} = A_{kk}^\mathrm{exp} / Q_{kk}$ \cite{Siegbahn1965}. Both detectors were measured to be at $5.1 \pm  0.1 \, \unit{cm}$, indicating the appropriate $Q_{kk}$.
+
+Fits for eq~\ref{eq:angular_correlation}, alongside the theoretical angular distribution for the solid angle corrected $W(\theta)$ for 4-2-0 and 0-1-0 cascades are shown in figure~\ref{fig:Count_rates}. The fit parameters, alongside $Q_{kk}$ and the solid angle corrected theoretical coefficients can be seen in table~\ref{tab:fit_angular_correlation}. The obtained values fall outside the theoretical expectations, even when considering the statistical uncertainties after multiple days of measurements. Previous measurements \cite{10.1093/ptep/ptag076, PhysRev.91.616}, with and without scintillator detectors confirm the theoretical values.
 
 \begin{figure}[htbp]
     \centering
@@ -322,8 +323,6 @@ For the random coincidence measurement, the delay on the fast-branch of the seco
 
 \begin{table}[htbp]
     \centering
-    \caption{Coefficients of the fit up to $P_4$ (Table~\ref{tab:fit_spin_cascades}) after the solid-angle correction $A_{kk} = A_{kk}^\mathrm{exp}/Q_{kk}$, with $Q_{kk} = Q_k^2$ for \qty{5}{\centi\metre} \cite[p.~1698]{Siegbahn1965}, and the theoretical values for three spin cascades.}
-    \label{tab:fit_angular_correlation}
     \begin{tabular}{cccccc}
         \toprule
          & $Q_{kk}$ & measured & 4-2-0 & 0-1-0 & 2-1-0 \\
@@ -332,7 +331,11 @@ For the random coincidence measurement, the delay on the fast-branch of the seco
         $A_{44}$ & 0.5055 & \num{0.0151 +- 0.0029} & 0.0091 & 0.0000 & 0.0000 \\
         \bottomrule
     \end{tabular}
+    \caption{Coefficients of the fit up to $P_4$ (Table~\ref{tab:fit_spin_cascades}) after the solid-angle correction $A_{kk} = A_{kk}^\mathrm{exp}/Q_{kk}$, with $Q_{kk} = Q_k^2$ for \qty{5}{\centi\metre} \cite{Siegbahn1965}, and the theoretical values for three spin cascades.}
+    \label{tab:fit_angular_correlation}
 \end{table}
+
+
 
 \begin{figure}[htbp]
     \centering
@@ -342,9 +345,6 @@ For the random coincidence measurement, the delay on the fast-branch of the seco
 \end{figure}
 
 \begin{table}[htbp]
-    \centering
-    \caption{Fit parameters and $\chi^2/\mathrm{ndf}$ of the fits up to $P_2$, $P_4$ and $P_6$}
-    \label{tab:fit_spin_cascades}
     \begin{tabular}{cccccc}
         \toprule
         fit up to & $K_0$ [\unit{\per\second}] & $A_{22}^\mathrm{exp}$ & $A_{44}^\mathrm{exp}$ & $A_{66}^\mathrm{exp}$ & $\chi^2/\mathrm{ndf}$ \\
@@ -354,6 +354,9 @@ For the random coincidence measurement, the delay on the fast-branch of the seco
         $P_6$ & \num{20.162 +- 0.013} & \num{0.0932 +- 0.0012} & \num{0.0073 +- 0.0016} & \num{0.0009 +- 0.0018} & $4.4/9 = 0.48$ \\
         \bottomrule
     \end{tabular}
+    \centering
+    \caption{Fit parameters and $\chi^2/\mathrm{ndf}$ of the fits up to $P_2$, $P_4$ and $P_6$}
+    \label{tab:fit_spin_cascades}
 \end{table}
 
 \FloatBarrier
