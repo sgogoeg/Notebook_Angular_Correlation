@@ -3,21 +3,21 @@
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.5\linewidth]{Figures/Placeholder.png}
-    \caption{Oscilloscope signal of second detector}
+    \caption{Oscilloscope signal of the fixed detector}
     \label{fig:osc_det2}
 \end{figure}
 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.5\linewidth]{Figures/Placeholder.png}
-    \caption{Oscilloscope of the signal and SCA gate for second detector}
+    \caption{Oscilloscope of the signal and SCA gate for the fixed detector}
     \label{fig:osc_SCA_det2}
 \end{figure}
 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.5\linewidth]{Figures/SCA_spectra_det2.pdf}
-    \caption{MCA spectrum with and without SCA gate for second detector}
+    \caption{MCA spectrum with and without SCA gate for the fixed detector}
     \label{fig:MCA_SCA_det2}
 \end{figure}
 
@@ -31,7 +31,7 @@
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.5\linewidth]{Figures/CFD_spectra_det2.pdf}
-    \caption{MCA spectrum with and wihout CFD gate for second detector}
+    \caption{MCA spectrum with and without CFD gate for the fixed detector}
     \label{fig:MCA_CFD_det2}
 \end{figure}
 
@@ -46,15 +46,31 @@
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.5\linewidth]{Figures/Placeholder.png}
-    \caption{Stability of the movable detector at the remaining angles}
+    \begin{subfigure}{0.48\textwidth}
+        \includegraphics[width=\linewidth]{Figures/stability_singles_180_movable.pdf}
+        \caption{Movable detector.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.48\textwidth}
+        \includegraphics[width=\linewidth]{Figures/stability_singles_180_fixed.pdf}
+        \caption{Fixed detector.}
+    \end{subfigure}
+    \caption{Stability of the singles rates for the runs at \ang{180} only (all other angles omitted). Error bars omitted for visibility.}
     \label{fig:stability_movable_all}
 \end{figure}
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.5\linewidth]{Figures/Placeholder.png}
-    \caption{Stability of the fast and universal coincidences at the remaining angles}
+    \begin{subfigure}{0.48\textwidth}
+        \includegraphics[width=\linewidth]{Figures/stability_coincidences_180_fast.pdf}
+        \caption{Fast coincidences.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.48\textwidth}
+        \includegraphics[width=\linewidth]{Figures/stability_coincidences_180_universal.pdf}
+        \caption{Universal coincidences.}
+    \end{subfigure}
+    \caption{Stability of the fast and universal coincidences for the runs at \ang{180} only (all other angles omitted). Error bars omitted for visibility.}
     \label{fig:stability_coinc_all}
 \end{figure}
 

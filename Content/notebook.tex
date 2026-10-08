@@ -92,13 +92,13 @@ The spectrum was recorded without the SCA gate (MCA self-gated, showing the full
     \centering
     \begin{subfigure}{0.40\textwidth}
         \includegraphics[width=\linewidth]{Figures/SCA_spectra_det1.pdf}
-        \caption{Spectrum for detector 01, the movable detector.}
+        \caption{Spectrum for the movable detector.}
         \label{subfig:sca_spectra01}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.40\textwidth}
         \includegraphics[width=\linewidth]{Figures/SCA_spectra_det2.pdf}
-        \caption{Spectrum for detector 02, the fixed one.}
+        \caption{Spectrum for the fixed detector.}
         \label{subfig:sca_spectra02}
     \end{subfigure}
     \caption{MCA spectrum self-gated (without gate) and with the SCA gate for movable detector (left) and fixed one (right).}
@@ -106,7 +106,7 @@ The spectrum was recorded without the SCA gate (MCA self-gated, showing the full
 \end{figure}
 
 The sensitivity is calculated using Eq. \ref{eq:sensitivitySCA} and the result is shown in Fig.\ref{fig:sensitivity_SCA}. 
-As seen, for the movable detector (detector 1) the sensitivity is above $1.0$ around the peaks. Efficiency shows a clear structure of two peaks, corresponding with the apparent on plain sight displacement of the SCA-gated and self-gated spectra. 
+As seen, for the movable detector the sensitivity is above $1.0$ around the peaks. Efficiency shows a clear structure of two peaks, corresponding with the apparent on plain sight displacement of the SCA-gated and self-gated spectra. 
 
 We suspect it is caused by an accidental change of gain in-between the data taking. However, since the files for both data were created with a 3 minute difference, drift is unlikely to be the cause of this change. 
 
@@ -251,14 +251,30 @@ Although a clear time instability and drift is appreciated, the number of measur
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=\linewidth]{Figures/stability_singles.pdf}
+    \begin{subfigure}{0.48\textwidth}
+        \includegraphics[width=\linewidth]{Figures/stability_singles_movable.pdf}
+        \caption{Movable detector.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.48\textwidth}
+        \includegraphics[width=\linewidth]{Figures/stability_singles_fixed.pdf}
+        \caption{Fixed detector.}
+    \end{subfigure}
     \caption{Stability plot for both detectors. Error bars omitted for visibility.}
     \label{fig:stability_both_dets}
 \end{figure}
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=\linewidth]{Figures/stability_coincidences.pdf}
+    \begin{subfigure}{0.48\textwidth}
+        \includegraphics[width=\linewidth]{Figures/stability_coincidences_fast.pdf}
+        \caption{Fast coincidences.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.48\textwidth}
+        \includegraphics[width=\linewidth]{Figures/stability_coincidences_universal.pdf}
+        \caption{Universal coincidences.}
+    \end{subfigure}
     \caption{Stability for the fast and universal coincidences. Error bars omitted for visibility.}
     \label{fig:stability_both_coin}
 \end{figure}
@@ -277,15 +293,12 @@ Although a clear time instability and drift is appreciated, the number of measur
 For the random coincidence measurement, the delay on the fast-branch of the second detector was set to 48\unit{\ns}, the angles ran from \ang{90} to \ang{270} with \ang{15} steps and the measurement took 1\unit{\hour}.
 
 
-\begin{table}[htbp]
+\begin{figure}[htbp]
     \centering
-    \caption{Misalignment correction factor per angle}
-    \label{tab:correction_factors}
-    \begin{tabular}{c|c}
-        a & b \\
-        c & d
-    \end{tabular}
-\end{table}
+    \includegraphics[width=0.5\linewidth]{Figures/misalignment_factor.pdf}
+    \caption{Misalignment correction factor $N_\mathrm{fix}/N_\mathrm{mov}$ per angle. Error bars multiplied by 10 for visibility.}
+    \label{fig:correction_factors}
+\end{figure}
 
 \begin{figure}[htbp]
     \centering
