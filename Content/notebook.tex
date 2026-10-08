@@ -13,25 +13,25 @@ In order to measure angular correlations in nuclear decays, calibration of the s
 
 \begin{figure}[htbp]
     \centering
-    \begin{subfigure}{0.48\textwidth}
+    \begin{subfigure}{0.45\textwidth}
         \includegraphics[width=\linewidth]{Figures/circuit01.png}
         \caption{Circuit used for visualizing the full spectrum.}
         \label{fig:circ_01}
     \end{subfigure}
     \hfill
-    \begin{subfigure}{0.48\textwidth}
+    \begin{subfigure}{0.45\textwidth}
         \includegraphics[width=\linewidth]{Figures/circuit02.png}
         \caption{Circuit for SCA calibration.}
         \label{fig:circ_02}
     \end{subfigure}
     \hfill
-    \begin{subfigure}{0.48\textwidth}
+    \begin{subfigure}{0.45\textwidth}
         \includegraphics[width=\linewidth]{Figures/circuit03.png}
         \caption{Circuit for CFD calibration.}
         \label{fig:circ_03}
     \end{subfigure}
     \hfill
-    \begin{subfigure}{0.48\textwidth}
+    \begin{subfigure}{0.45\textwidth}
         \includegraphics[width=\linewidth]{Figures/circuit04.png}
         \caption{Circuit for adjusting delay in fast-branch.}
         \label{fig:circ_04}
@@ -90,13 +90,13 @@ The spectrum was recorded without the SCA gate (MCA self-gated, showing the full
 
 \begin{figure}[htbp]
     \centering
-    \begin{subfigure}{0.48\textwidth}
+    \begin{subfigure}{0.40\textwidth}
         \includegraphics[width=\linewidth]{Figures/SCA_spectra_det1.pdf}
         \caption{Spectrum for detector 01, the movable detector.}
         \label{subfig:sca_spectra01}
     \end{subfigure}
     \hfill
-    \begin{subfigure}{0.48\textwidth}
+    \begin{subfigure}{0.40\textwidth}
         \includegraphics[width=\linewidth]{Figures/SCA_spectra_det2.pdf}
         \caption{Spectrum for detector 02, the fixed one.}
         \label{subfig:sca_spectra02}
@@ -120,8 +120,8 @@ while the data was being taken or the gated and self-gated spectrum were recorde
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.5\linewidth]{Figures/SCA_sensitivity.pdf}
-    \caption{Sensitivity of both detectors}
+    \includegraphics[width=0.40\linewidth]{Figures/SCA_sensitivity.pdf}
+    \caption{SCA sensitivity of both detectors}
     \label{fig:sensitivity_SCA}
 \end{figure}
 
@@ -148,29 +148,27 @@ The GDG delay was changed for both pulses being center aligned.
 
 Similarly to what was done for the SCA calibration, the spectrum is obtained using the MCA with the option self-gated and gated with CFD, the results are shown in Fig. \ref{fig:cali_CFD}.
 After that, the sensitivity was calculated using Eq. \ref{eq:sensitivityCFD} and plotted for both detectors in Fig. \ref{fig:SensitivityCFD}. 
+\begin{equation}\label{eq:sensitivityCFD}
+       \eta_{\mathrm{CFD}}(E) = \dfrac{N_{\mathrm{CFD-gated}}(E)}{N_{\mathrm{self-gated}}(E)}
+\end{equation}
 For the CFD, the sensitivity is closer to 1.0 around the peaks for both detectors. However, a portion of the first peak for the movable detector is clearly cut. This enters as a source of systematic error: events where the movable detector initiates the chain for energies in the left side of the peak are less likely to be selected, compared to the opposite ordering.
-
 \begin{figure}[htbp]
     \centering
-    \begin{subfigure}{0.48\textwidth}
+    \begin{subfigure}{0.45\textwidth}
         \includegraphics[width=\linewidth]{Figures/CFD_spectra_det1.pdf}
     \end{subfigure}
     \hfill
-    \begin{subfigure}{0.48\textwidth}
+    \begin{subfigure}{0.45\textwidth}
         \includegraphics[width=\linewidth]{Figures/CFD_spectra_det2.pdf}
     \end{subfigure}
     \caption{MCA spectrum self-gated (without gate) and with the CFD gate for movable detector (left) and fixed one (right).}
     \label{fig:cali_CFD}
 \end{figure}
 
-\begin{equation}\label{eq:sensitivityCFD}
-       \eta_{\mathrm{CFD}}(E) = \dfrac{N_{\mathrm{CFD-gated}}(E)}{N_{\mathrm{self-gated}}(E)}
-\end{equation}
-
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.5\linewidth]{Figures/CFD_sensitivity.pdf}
-    \caption{Sensitivity of both detectors}
+    \includegraphics[width=0.40\linewidth]{Figures/CFD_sensitivity.pdf}
+    \caption{CFD sensitivity of both detectors}
     \label{fig:SensitivityCFD}
 \end{figure}
 
@@ -195,7 +193,7 @@ were $A$ is the height of the prompt curve, $t_0$ is the center in time, $w = 2 
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.5\linewidth]{Figures/prompt_curve.pdf}
+    \includegraphics[width=0.40\linewidth]{Figures/prompt_curve.pdf}
     \caption{Prompt-curve with delay on each branch and fit.}
     \label{fig:prompt_curve}
 \end{figure}
@@ -216,14 +214,20 @@ The resolving time, $w$, represents the interval that the circuit can consider t
 \subsection{Delay in the slow branch}
 Lastly, the delay in the slow branch needs to be set. 
 The circuit from Fig. \ref{fig:circ_final} is used and it is also the circuit used for the main measurement. 
+Each detector has a slow-branch with an amplifier, SCA, delay and the output goes to a counter and to the universal coincidence (UC). 
+Also, each detector has a fast-branch with the inverter amplifier, CFD and delays. 
+The output of both fast-branches go to the fast-coincidence (FC), which then goes to a counter and to the GDG that connects to the UC. 
+In the end, the UC has three inputs: two from the slow-branches and one from fast-branch (CFDs, FC and GDG).
+
+To define the correct delay, we used the oscilloscope.
 The channel 1 of the oscilloscope is connected to the slow-branch of detector 01, the channel 3 is connected to the slow-branch of detector 02 and the channel 4 is connected to the GDG that is connected to the fast coincidence. 
 The channel 2 of the oscilloscope is not used because the color makes it harder to visualize the signal. 
 The signals were set to be center aligned, as seen in Fig. \ref{fig:slow_delay} \footnote{We had to use the picture because the oscilloscope was not saving the screenshot anymore. We went to the laboratory again when we noticed the issue, but it persisted and we opted for the picture.}, to maximize the coincidence, as it assures the slow-branches are within the gate.
 
-\begin{figure}
+\begin{figure}[htbp]
     \centering
     \includegraphics[width=0.65\linewidth]{Figures/circuit_final.png}
-    \caption{Caption}
+    \caption{Final circuit used for the delay on slow-branch and the main measurement.}
     \label{fig:circ_final}
 \end{figure}
 \begin{figure}[htbp]
@@ -270,7 +274,7 @@ Although a clear time instability and drift is appreciated, the number of measur
 \end{table}
 
 \subsection{Random coincidence and misalignment corrections}
-For the random coincidence measurement, the delay on the fast-branch of the second detector was set to 48\unit{\ns}, the angles ran from \ang{135} to \ang{225} and the measurement took 1\unit{\hour}.
+For the random coincidence measurement, the delay on the fast-branch of the second detector was set to 48\unit{\ns}, the angles ran from \ang{90} to \ang{270} with \ang{15} steps and the measurement took 1\unit{\hour}.
 
 
 \begin{table}[htbp]
