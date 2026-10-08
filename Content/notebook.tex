@@ -8,8 +8,8 @@
 \vspace{1.5em}
 
 \section{Preparations and calibration of the setup}
-Before starting the experiment, it was need to calibrate the setup. 
-The circuits are shown in Fig. \ref{fig:circuits} and the steps are described in the subsections. 
+
+In order to measure angular correlations in nuclear decays, calibration of the slow and fast branches is required. The circuits used can be seen in Fig.~\ref{fig:circuits} in page~\pageref{fig:circuits}, and the steps are described in the subsections. 
 
 \begin{figure}[htbp]
     \centering
@@ -42,13 +42,11 @@ The circuits are shown in Fig. \ref{fig:circuits} and the steps are described in
 
 
 \subsection{Gain of the amplifiers}
-\textcolor{red}{Explain how you concluded that the
-shown signals correspond to the photopeaks, how the signal shape should be, and how it would look like if saturated}
+Using the circuit from Fig.~\ref{fig:circ_01}, we first connected the output of the amplifier to the oscilloscope and adjusted the gain such that amplitude of the bulk of the cleanly shaped signals would have an amplitude between \qtyrange{8}{9}{\volt}, in accordance with the 10 \unit{\volt} maximum of the 
+multi-channel analyzer (MCA). On the oscilloscope, we could see a bipolar pulse per signal, as shown in Fig. \ref{fig:osc_amp}. Some signals of higher amplitude (surpassing the 9 \unit{\volt}) where also visible, however their shape differed compared to that of Fig. \ref{fig:osc_amp}. This suggested the events correspond to simultaneous absorptions of multiple photons, or a result of pile-up effects, making their non-detection at the MCA desirable. 
 
-Using the circuit from Fig. \ref{fig:circ_01}, we first connected the output of the amplifier to the oscilloscope and adjusted the gain such that amplitude of the signal would be between \qtyrange{8}{9}{\volt}, because the multi-channel analyzer (MCA) has a maximum limit of 10 \unit{\volt}. 
-On the oscilloscope, we could see a bipolar pulse per signal, as shown in Fig. \ref{fig:osc_amp}. 
-The amplitude seen in the oscilloscope is proportional to the energy deposited in the detectors and there was no saturation because there was no plateau in the analog signal. 
-By switching the gain output from the oscilloscope to the MCA with the gate off, we could also check that the full spectrum was visible in the software by comparing with the spectrum from the literature. 
+The amplitude seen in the oscilloscope is proportional to the energy deposited in the detectors, and no saturation (manifesting as a plateau in the analog signal) was observed. 
+By switching the gain output from the oscilloscope to the MCA with the gate off, we could also check that the full spectrum was visible in the software by comparing with the spectrum from the literature \cite{Amato:2022yoj}
 
 \begin{figure}[htbp]
     \centering
@@ -59,20 +57,19 @@ By switching the gain output from the oscilloscope to the MCA with the gate off,
     \begin{subfigure}{0.48\textwidth}
         \includegraphics[width=\linewidth]{Figures/osc_amp_02.png}
     \end{subfigure}
-    \caption{Oscilloscope screenshots for the fixed detector (left) and the movable detector (right), both with the constraint of amplitude peak \qtyrange{8}{9}{\volt} for checking the gain of the amplifiers.}
+    \caption{Oscilloscope screenshots for the movable detector (left) and the fixed detector (right), both with the constraint of amplitude peak \qtyrange{8}{9}{\volt} for checking the gain of the amplifiers.}
     \label{fig:osc_amp}
 \end{figure}
 
+\FloatBarrier
 
 \subsection{Calibration of the SCAs}
-\textcolor{red}{Indicate which thresholds were chosen for the final measurement. The sensitivity of the SCA should be close to 100 \% in the range of the photo peaks. Is it?}
-
 The single-channel-analyzer (SCA) needs to be calibrated, once the analysis will not be done in the whole spectrum. 
 In order to achieve that, the circuit from Fig. \ref{fig:circ_02} is used.
 The signal coming from the amplifier is divided, one goes to the delay generator and the other goes to the SCA followed by a gate-delay-generator (GDG). 
 They are then connected to either the oscilloscope or to the MCA.
-The delay and the GDG are selected such that the analog signal is aligned with the digital, without cutting the peaks, according to Fig. \ref{fig:osc_SCA}
-This is done using the oscilloscope. 
+The delay and the GDG are selected such that the analog signal is aligned with the digital, without cutting the peaks, according to Fig. \ref{fig:osc_SCA}. This is done using the oscilloscope. 
+
 \begin{figure}[htbp]
     \centering
     \begin{subfigure}{0.48\textwidth}
@@ -82,35 +79,40 @@ This is done using the oscilloscope.
     \begin{subfigure}{0.48\textwidth}
         \includegraphics[width=\linewidth]{Figures/osc_SCA_02.png}
     \end{subfigure}
-    \caption{Oscilloscope screenshots for the fixed detector (left) and the movable detector (right) for the SCA calibration circuit. The SCA-GDG output is the digital pulse, in green, and the delay output is the yellow one.}
+    \caption{Oscilloscope screenshots for the movable detector (left) and the fixed detector (right) for the SCA calibration circuit. The SCA-GDG output is the digital pulse, in green, and the delay output is the yellow one.}
     \label{fig:osc_SCA}
 \end{figure}
 
 On the other hand, while using the MCA, the SCA window is selected to contain both photopeaks of the spectrum for higher statistics.
-For the fixed detector the SCA window was of lower-limit $9.20$ \unit{\volt} and $\Delta E = 2.30$ \unit{\volt}. 
-For the movable detector, it was set to $8.40$ \unit{\volt} and $\Delta E = 2.52$ \unit{\volt}. 
+For the movable detector the SCA window was of lower-limit $9.20$ \unit{\volt} and $\Delta E = 2.30$ \unit{\volt}. 
+For the fixed detector, it was set to $8.40$ \unit{\volt} and $\Delta E = 2.52$ \unit{\volt}. 
 The spectrum was recorded without the SCA gate (MCA self-gated, showing the full spectrum) and with the SCA gate, showing the peak selection, as shown in Fig. \ref{fig:cali_SCA}
 
 \begin{figure}[htbp]
     \centering
     \begin{subfigure}{0.48\textwidth}
         \includegraphics[width=\linewidth]{Figures/SCA_spectra_det1.pdf}
-        \caption{Spectrum for detector 01, the fixed detector.}
+        \caption{Spectrum for detector 01, the movable detector.}
         \label{subfig:sca_spectra01}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.48\textwidth}
         \includegraphics[width=\linewidth]{Figures/SCA_spectra_det2.pdf}
-        \caption{Spectrum for detector 02, the movable one.}
+        \caption{Spectrum for detector 02, the fixed one.}
         \label{subfig:sca_spectra02}
     \end{subfigure}
-    \caption{MCA spectrum self-gated (without gate) and with the SCA gate for fixed detector (left) and movable one (right).}
+    \caption{MCA spectrum self-gated (without gate) and with the SCA gate for movable detector (left) and fixed one (right).}
     \label{fig:cali_SCA}
 \end{figure}
 
 The sensitivity is calculated using Eq. \ref{eq:sensitivitySCA} and the result is shown in Fig.\ref{fig:sensitivity_SCA}. 
-As seen, for the fixed detector (detector 1) the sensitivity is above $1.0$ around the peaks. 
-We suspect it is caused by changing the gain while the data was being taken or the gated and self-gated spectrum were recorded for different configurations, which caused the peaks of both to not be aligned, agreeing with what is observed in Fig. \ref{subfig:sca_spectra01} around the peaks.
+As seen, for the movable detector (detector 1) the sensitivity is above $1.0$ around the peaks. Efficiency shows a clear structure of two peaks, corresponding with the apparent on plain sight displacement of the SCA-gated and self-gated spectra. 
+
+We suspect it is caused by an accidental change of gain in-between the data taking. However, since the files for both data were created with a 3 minute difference, drift is unlikely to be the cause of this change. 
+
+
+while the data was being taken or the gated and self-gated spectrum were recorded for different configurations, which caused the peaks of both to not be aligned, agreeing with what is observed in Fig. \ref{subfig:sca_spectra01} around the peaks.
+
 
 \begin{equation}\label{eq:sensitivitySCA}
     \eta_{\mathrm{SCA}}(E) = \dfrac{N_{\mathrm{SCA-gated}}(E)}{N_{\mathrm{self-gated}}(E)}
@@ -123,14 +125,12 @@ We suspect it is caused by changing the gain while the data was being taken or t
     \label{fig:sensitivity_SCA}
 \end{figure}
 
+We also notice the high energy tail for both detections reduces significantly in efficiency, although it does not fall to near zero completely. This is another source of false coincidences. 
 
-\newpage
 \subsection{Calibration of the CFDs}
-\textcolor{red}{Indicate the chosen threshold in the plot. sensitivity should be close to 100 \% in the range of the photo peaks. Is it?}
-
 For the fast branch circuit, the constant fraction discriminators (CFDs) were calibrated using the circuit represented in Fig. \ref{fig:circ_03}. 
 The threshold was chosen such that there was not too much visible noise and also not too high. 
-For the fixed detector, the threshold is $0.63$ \unit{\volt} and for the movable one, it is $1.0$ \unit{\volt}. 
+For the movable detector, the threshold is $0.63$ \unit{\volt} and for the fixed one, it is $1.0$ \unit{\volt}. 
 The GDG delay was changed for both pulses being center aligned.
 
 \begin{figure}[htbp]
@@ -142,11 +142,13 @@ The GDG delay was changed for both pulses being center aligned.
     \begin{subfigure}{0.48\textwidth}
         \includegraphics[width=\linewidth]{Figures/osc_CFD_02_tes.png}
     \end{subfigure}
-    \caption{Oscilloscope screenshots for the fixed detector (left) and the movable detector (right) for the CFD calibration circuit. The CFD-GDG output is the digital pulse, in green, and the delay output is the yellow one.}
+    \caption{Oscilloscope screenshots for the movable detector (left) and the fixed detector (right) for the CFD calibration circuit. The CFD-GDG output is the digital pulse, in green, and the delay output is the yellow one.}
     \label{fig:osc_CFD}
 \end{figure}
 
-
+Similarly to what was done for the SCA calibration, the spectrum is obtained using the MCA with the option self-gated and gated with CFD, the results are shown in Fig. \ref{fig:cali_CFD}.
+After that, the sensitivity was calculated using Eq. \ref{eq:sensitivityCFD} and plotted for both detectors in Fig. \ref{fig:SensitivityCFD}. 
+For the CFD, the sensitivity is closer to 1.0 around the peaks for both detectors. However, a portion of the first peak for the movable detector is clearly cut. This enters as a source of systematic error: events where the movable detector initiates the chain for energies in the left side of the peak are less likely to be selected, compared to the opposite ordering.
 
 \begin{figure}[htbp]
     \centering
@@ -157,13 +159,12 @@ The GDG delay was changed for both pulses being center aligned.
     \begin{subfigure}{0.48\textwidth}
         \includegraphics[width=\linewidth]{Figures/CFD_spectra_det2.pdf}
     \end{subfigure}
-    \caption{MCA spectrum self-gated (without gate) and with the CFD gate for fixed detector (left) and movable one (right).}
+    \caption{MCA spectrum self-gated (without gate) and with the CFD gate for movable detector (left) and fixed one (right).}
     \label{fig:cali_CFD}
 \end{figure}
 
-
 \begin{equation}\label{eq:sensitivityCFD}
-    AAAA = BBB
+       \eta_{\mathrm{CFD}}(E) = \dfrac{N_{\mathrm{CFD-gated}}(E)}{N_{\mathrm{self-gated}}(E)}
 \end{equation}
 
 \begin{figure}[htbp]
@@ -173,32 +174,29 @@ The GDG delay was changed for both pulses being center aligned.
     \label{fig:SensitivityCFD}
 \end{figure}
 
+\newpage
 \subsection{Delay in the fast branch}
 The fast branch of each detector has its own CFD and delay, as in the circuit \ref{fig:circ_04}.
 The signals must arrive at the same at the fast coincidence (FC) and then we can build the prompt curve, Fig. \ref{fig:prompt_curve}, by changing the delay times of each detector \cite{Siegbahn1965}.
-First, the delay on detector 01 (the fixed one) was kept to 0 and we changed the delay the on the detector 02 (movable detector), which is the positive part of the prompt curve.
+First, the delay on detector 01 (the movable one) was kept to 0 and we changed the delay the on the detector 02 (fixed detector), which is the positive part of the prompt curve.
 After this, the opposite was done. 
 The delays from detector 02 were set to zero and the delays on detector 01 were changed, resulting in the negative part of the prompt curve. 
 
 The prompt curve is fitted with Eq. \ref{eq:fit_prompt}.
-The resolving time changes the width of the prompt curve, the shorter it is, narrower the prompt curve becomes. 
-
-
-
-
+The resolving time changes the width of the prompt curve, the shorter it is, narrower the prompt curve becomes, as it controls the width of the curve.
 \begin{equation}\label{eq:fit_prompt}
     f(t) = \frac{A}{2}\cdot \left ( 1 + \mathrm{erf} \left(\dfrac{t-(t_{0}-\frac{w}{2})}{\sigma} \right) \cdot \mathrm{erf} \left(\dfrac{(t_{0}+\frac{w}{2})-t}{\sigma} \right)\right) + A_{0}
 \end{equation}
+were $A$ is the height of the prompt curve, $t_0$ is the center in time, $w = 2 \tau$ is the resolving time of the setup, $\sigma$ controls the steepness of the rise and fall of the curve and $A_0$ is the random coincidence background of the curve.
+
 \begin{equation}\label{eq:Delay_Fast_Branch}
     CAD =asas
 \end{equation}
-\textcolor{red}{How will the shape of the prompt curve change if the resolving time is chosen too short or too long? Was the choice reasonable?}
-
 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.5\linewidth]{Figures/prompt_curve.pdf}
-    \caption{Data delay fast branch with fit}
+    \caption{Prompt-curve with delay on each branch and fit.}
     \label{fig:prompt_curve}
 \end{figure}
 
@@ -213,34 +211,52 @@ The resolving time changes the width of the prompt curve, the shorter it is, nar
 \end{table}
 \textcolor{red}{Explain what each of the parameters represents. Which property of the
 setup corresponds to the width of the function? Which property to the width of the slopes?}
+The resolving time, $w$, represents the interval that the circuit can consider two signals coincident. 
+
 \subsection{Delay in the slow branch}
 Lastly, the delay in the slow branch needs to be set. 
+The circuit from Fig. \ref{fig:circ_final} is used and it is also the circuit used for the main measurement. 
+The channel 1 of the oscilloscope is connected to the slow-branch of detector 01, the channel 3 is connected to the slow-branch of detector 02 and the channel 4 is connected to the GDG that is connected to the fast coincidence. 
+The channel 2 of the oscilloscope is not used because the color makes it harder to visualize the signal. 
+The signals were set to be center aligned, as seen in Fig. \ref{fig:slow_delay} \footnote{We had to use the picture because the oscilloscope was not saving the screenshot anymore. We went to the laboratory again when we noticed the issue, but it persisted and we opted for the picture.}, to maximize the coincidence, as it assures the slow-branches are within the gate.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.65\linewidth]{Figures/circuit_final.png}
+    \caption{Caption}
+    \label{fig:circ_final}
+\end{figure}
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.5\linewidth]{Figures/osc_slow_delay.jpeg}
-    \caption{Oscilloscope signal for the 3 branches. Due to problems when saving the oscilloscope screenshot for 3 channels, a simple picture of the screen was preferred.}
+    \caption{Oscilloscope picture for the 3 channels. Channel 1 is in yellow, channel 3 is blue and channel 4 is green}
     \label{fig:slow_delay}
 \end{figure}
-\textcolor{red}{Explain which features need to be
-aligned (center? edge?)}
+
 \FloatBarrier
 
 \section{Main Measurement}
 
 \subsection{Stability of the setup}
 
+For the stability, the rate of the detectors relative to the median is shown. For every run (so different angles), the rate is compared to the median of the rate for all runs at the same angle. This can be seen for the single rates of both detectors in~\ref{fig:stability_both_dets}, and for the coincidence units in~\ref{fig:stability_both_coin}. A significant amount of the runs for the fixed detector at around the third day are way below the median. We identify these runs as anomalous and take them out of the following analysis by considering an exclusion of points further away from the median than $5$ times the maximum deviation of the movable detector.
+
+In the fixed detector as well as the coincidences, an increasing linear shift with time seems to be apparent.
+
+Although a clear time instability and drift is appreciated, the number of measurements is still considered large enough to continue with the analysis, as the oscillationg instabilities for the fixed detector 
+
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=\linewidth]{Figures/stability_singles.pdf}
     \caption{Stability plot for both detectors. Error bars omitted for visibility.}
-    \label{fig:stability_both}
+    \label{fig:stability_both_dets}
 \end{figure}
 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=\linewidth]{Figures/stability_coincidences.pdf}
     \caption{Stability for the fast and universal coincidences. Error bars omitted for visibility.}
-    \label{fig:placeholder}
+    \label{fig:stability_both_coin}
 \end{figure}
 
 \begin{table}[htbp]
@@ -254,6 +270,8 @@ aligned (center? edge?)}
 \end{table}
 
 \subsection{Random coincidence and misalignment corrections}
+For the random coincidence measurement, the delay on the fast-branch of the second detector was set to 48\unit{\ns}, the angles ran from \ang{135} to \ang{225} and the measurement took 1\unit{\hour}.
+
 
 \begin{table}[htbp]
     \centering
